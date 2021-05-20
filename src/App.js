@@ -1,10 +1,23 @@
 import './App.css';
 import elemlist from './list';
 import PodcastCard from "./Card";
+import { makeStyles } from '@material-ui/core/styles';
 import {Grid, Typography} from "@material-ui/core";
 import React from "react";
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+    },
+    paper: {
+        padding: theme.spacing(2),
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+    },
+}));
+
 function App() {
+    const classes = useStyles();
   return (
       <React.Fragment>
           <div>
@@ -13,10 +26,12 @@ function App() {
               </h1>
           </div>
           <div style={{paddingTop:30, paddingBottom:30, paddingLeft:100, paddingRight:100}}>
-              <Grid container alignItems="center" justify="space-between" style={{ padding: 10}} direction={'row'} spacing={2}>
+              <Grid container alignItems="center" justify="space-between" style={{ padding: 10, justifyContent: "inherit"}} direction={'row'} spacing={2}>
                 {
                   elemlist.map(podcast=>
-                    <PodcastCard podcast={podcast}/>
+                      <Grid item>
+                          <PodcastCard podcast={podcast}/>
+                      </Grid>
                   )
                 }
               </Grid>

@@ -15,7 +15,7 @@ import {Button, Drawer, Link, Snackbar} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        maxWidth: 345,
+        maxWidth: 250,
     },
     media: {
         height: 250,
@@ -71,7 +71,7 @@ const PodcastCard = ({podcast}) => {
 
     return (
         <Card className={classes.root}>
-            <CardHeader
+            <CardHeader style={{maxWidth: 250}}
                 title={podcast.name}
             />
             <CardMedia
@@ -107,9 +107,9 @@ const PodcastCard = ({podcast}) => {
                 key={vertical + horizontal}
             />
             <Drawer anchor="right" open={expanded} onClose={toggleDrawer()}>
-                <div style={{padding:30}}>
+                <div style={{padding:30, maxWidth: 345}}>
                     <div>
-                        <Typography variant="h4" color="textPrimary"  style={{textAlignLast: "center", paddingBottom: 10}}>
+                        <Typography variant="h4" color="textPrimary"  style={{textAlignLast: "auto", paddingBottom: 10}}>
                             {podcast.name}
                         </Typography>
                         <Typography variant="body2" color="textSecondary"  style={{textAlignLast: "center", paddingBottom: 10}}>
